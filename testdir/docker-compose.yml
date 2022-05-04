@@ -1,0 +1,17 @@
+version: "2.1"
+
+networks:
+  ca_network:
+
+services:
+  node:
+    image: ca
+    build: .
+    networks:
+      - ca_network
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - "4000:4000"
